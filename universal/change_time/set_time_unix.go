@@ -13,6 +13,6 @@ func setTime(timestamp time.Time) error {
 	utc := timestamp.UTC()
 	return unix.Settimeofday(&unix.Timeval{
 		Sec:  utc.Unix(),
-		Usec: int64(utc.Nanosecond() / int(time.Microsecond)),
+		Usec: int32(utc.Nanosecond() / int(time.Microsecond)),
 	})
 }
